@@ -1,3 +1,5 @@
+package com.wedul.lucene;
+
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -14,14 +16,10 @@ import java.io.IOException;
 public class Indexer {
 
     public static void main(String args[]) throws IOException {
-        if (args.length !=2) {
-            throw new IllegalArgumentException("Usage: java " + Indexer.class.getName() + " <index dir> <data dir>");
-        }
-
         // 여기에 지정한 디렉터리에 색인 생성
-        String indexDir = args[0];
+        String indexDir = Indexer.class.getResource("/inputtxt").getPath();
         // 여기에 지정한 디렉터리에 담김 txt 파일
-        String dataDir = args[1];
+        String dataDir = Indexer.class.getResource("/output").getPath();
 
         long start = System.currentTimeMillis();
         Indexer indexer = new Indexer(indexDir);
