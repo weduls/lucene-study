@@ -1,3 +1,5 @@
+package simple;
+
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -15,9 +17,9 @@ public class Indexer {
 
     public static void main(String args[]) throws IOException {
         // 여기에 지정한 디렉터리에 색인 생성
-        String indexDir = Indexer.class.getResource("/output").getPath();
+        String indexDir = Indexer.class.getClassLoader().getResource("outputtxt").getPath();
         // 여기에 지정한 디렉터리에 담김 txt 파일
-        String dataDir = Indexer.class.getResource("/inputtxt").getPath();
+        String dataDir = Indexer.class.getClassLoader().getResource("inputtxt").getPath();
 
         long start = System.currentTimeMillis();
         Indexer indexer = new Indexer(indexDir);
@@ -75,7 +77,7 @@ public class Indexer {
     protected Document getDocument(File f) throws Exception {
         Document doc = new Document();
         // 파일 컨텐츠 필드 추가
-        doc.add(new Field("content", new FileReader(f)));
+        doc.add(new Field("contents", new FileReader(f)));
         // 파일 이름 추가
         doc.add(new Field("filename", f.getName(), Field.Store.YES, Field.Index.NOT_ANALYZED));
         // 경로 추가

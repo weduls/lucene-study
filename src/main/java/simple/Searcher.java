@@ -1,3 +1,5 @@
+package simple;
+
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.queryParser.ParseException;
@@ -16,9 +18,9 @@ import java.io.IOException;
 public class Searcher {
 
     public static void main(String args[]) throws IOException, ParseException {
-        String indexDir = Searcher.class.getResource("/output").getPath();
+        String indexDir = Searcher.class.getClassLoader().getResource("outputtxt").getPath();
         // parent가 포함된 document 검색
-        String q = "parent";
+        String q = "patent";
         search(indexDir, q);
     }
 
