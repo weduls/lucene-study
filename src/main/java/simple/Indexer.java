@@ -1,5 +1,3 @@
-package com.wedul.lucene;
-
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -17,9 +15,9 @@ public class Indexer {
 
     public static void main(String args[]) throws IOException {
         // 여기에 지정한 디렉터리에 색인 생성
-        String indexDir = Indexer.class.getResource("/inputtxt").getPath();
+        String indexDir = Indexer.class.getResource("/output").getPath();
         // 여기에 지정한 디렉터리에 담김 txt 파일
-        String dataDir = Indexer.class.getResource("/output").getPath();
+        String dataDir = Indexer.class.getResource("/inputtxt").getPath();
 
         long start = System.currentTimeMillis();
         Indexer indexer = new Indexer(indexDir);
