@@ -28,8 +28,8 @@ public class IndexingLock {
         dir = FSDirectory.open(indexDir);
     }
 
-    // writer1이 indexing dir 사용하고 있어서 writer2가 접근하려 하면 색인 락에 의해서 LockObtainFailedException이 발생
-    public static void testWriteL을ock() throws IOException {
+    // writer1이 indexing dir을 사용하고 있어서 writer2가 접근하려 하면 색인 락에 의해서 LockObtainFailedException이 발생
+    public static void testWriteLock() throws IOException {
         IndexWriter writer1 = new IndexWriter(dir, new SimpleAnalyzer(), IndexWriter.MaxFieldLength.UNLIMITED);
         IndexWriter writer2 = null;
 
